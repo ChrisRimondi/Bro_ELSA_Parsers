@@ -121,7 +121,7 @@
 						<test_value name="s0">HTTP::BROWSER</test_value>
 						<!-- name -->
 						<test_value name="s1">MSIE</test_value>
-						<!-- version -->
+						<!-- version_major -->
 						<test_value name="i2">5</test_value>
 						<!-- version_minor -->
 						<test_value name="i3">1</test_value>
@@ -201,6 +201,110 @@
 						<test_value name="s2">INFO</test_value>
 						<!-- bro_syslog_message -->
 						<test_value name="s3">Aug  3 23:13:39 pf: 00:00:00.804184 rule 36/0(match): pass in on vr0: (tos 0x0, ttl 64, id 11232, offset 0, flags [DF], proto UDP (17), length 55)   192.168.1.116.43172 > 192.168.1.1.53: 40972+ A? localhost. (27)</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+	<ruleset>
+		<pattern>bro_irc</pattern>
+		<rules>
+			<rule class="10027" id="10027">
+				<patterns>
+                  <!-- start securityonion -->      
+                  <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ANYSTRING:s1:@</pattern>
+                  <!-- end securityonion -->
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_irc">1352413490.163439|FB2AqwMeEy4|192.168.1.12|1045|212.48.121.249|5050|NEW-[USA|00|P|23733]|XP-1630|JOIN|#!nn!| with channel key: 'test'|-|-|-|-</test_message>
+						<!-- eventid -->
+						<test_value name="s0">FB2AqwMeEy4</test_value>
+						<!-- srcip -->
+						<test_value name="i0">192.168.1.12</test_value>
+						<!-- srcport -->
+						<test_value name="i1">1045</test_value>
+						<!-- dstip -->
+						<test_value name="i2">212.48.121.249</test_value>
+						<!-- dstport -->
+						<test_value name="i3">5050</test_value>
+						<!-- bro_syslog_facility -->
+						<test_value name="s1">NEW-[USA|00|P|23733]|XP-1630|JOIN|#!nn!| with channel key: 'test'|-|-|-|-</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+	<ruleset>
+		<pattern>bro_known_cert</pattern>
+		<rules>
+			<rule class="10028" id="10028">
+				<patterns>
+                  <!-- start securityonion -->      
+                  <pattern>@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING::CN=@@ESTRING:s0:,@@ESTRING::OU=@@ESTRING:s1:@@ESTRING::O=@@ESTRING:s2:,@@ESTRING::emailAddress=@@ESTRING:s3:,@</pattern>
+                  <pattern>@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING::CN=@@ESTRING:s0:,@@ESTRING::OU=@@ESTRING:s1:@@ESTRING::O=@@ESTRING:s2:,@</pattern>
+                  <!-- end securityonion -->
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_known_cert">1360154644.236015|10.2.20.60|443|
+						emailAddress=webmaster@dox.site,CN=dox.site,OU=web server,O=SuSE Linux Web Server,L=unknown,ST=unknown,C=XY	emailAddress=webmaster@dox.site,CN=dox.site,OU=CA,O=SuSE Linux Web Server,L=unknown,ST=unknown,C=XY	02</test_message>
+						<!-- srcip -->
+						<test_value name="i0">10.2.20.60</test_value>
+						<!-- srcport -->
+						<test_value name="i1">443</test_value>
+						<!-- common_name -->
+						<test_value name="s0">dox.site</test_value>
+						<!-- organizational unit -->
+						<test_value name="s1">web server</test_value>
+						<!-- organization -->
+						<test_value name="s2">SuSE Linux Web Server</test_value>
+						<!-- email_address -->
+						<test_value name="s3">webmaster@dox.site</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+	<ruleset>
+		<pattern>bro_known_hosts</pattern>
+		<rules>
+			<rule class="10029" id="10029">
+				<patterns>
+                  <!-- start securityonion -->      
+                  <pattern>@ESTRING::|@@ESTRING:i0:@</pattern>
+                  <!-- end securityonion -->
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_known_hosts">1360154565.568704|192.168.3.35</test_message>
+						<!-- srcip -->
+						<test_value name="i0">192.168.3.35</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+		<ruleset>
+		<pattern>bro_known_services</pattern>
+		<rules>
+			<rule class="10030" id="10030">
+				<patterns>
+                  <!-- start securityonion -->      
+                  <pattern>@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:s0:@</pattern>
+                  <!-- end securityonion -->
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_known_cert">1360154567.821951|192.168.10.100|2869|tcp|HTTP</test_message>
+						<!-- srcip -->
+						<test_value name="i0">192.168.10.100/test_value>
+						<!-- srcport -->
+						<test_value name="i1">2869</test_value>
+						<!-- proto -->
+						<test_value name="i2">tcp</test_value>
+						<!-- service -->
+						<test_value name="s0">HTTP</test_value>
 					</example>
 				</examples>
 			</rule>
