@@ -1,0 +1,208 @@
+<ruleset>
+		<pattern>bro_ftp</pattern>
+		<rules>
+			<rule class="10021" id="10021">
+				<patterns>
+				  <!-- start securityonion -->
+                  <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:s1:|@@ESTRING:s2:|@@ESTRING:s0:|@@ESTRING:s3:|@@ESTRING:s4:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@</pattern>
+                  <!-- end securityonion -->
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ANYSTRING:s1@</pattern>
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@</pattern>
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_ftp">1360158824.989266|B6a0lYqUPm4|10.1.10.64|2504|10.2.20.40|21|redcell|hidden|RETR|ftp://10.2.20.40/./bandook.exe|-|-|-|-|-|-|-</test_message>
+						<!-- eventid -->
+						<test_value name="s0">B6a0lYqUPm4</test_value>
+						<!-- srcip -->
+						<test_value name="i0">10.1.10.64</test_value>
+						<!-- srcport -->
+						<test_value name="i1">2504</test_value>
+						<!-- dstip -->
+						<test_value name="i2">10.2.20.40</test_value>
+						<!-- dstport -->
+						<test_value name="i3">21</test_value>
+						<!-- username -->
+						<test_value name="s1">redcell</test_value>
+						<!-- password -->
+						<test_value name="s2">hidden</test_value>
+						<!-- command -->
+						<test_value name="s3">RETR</test_value>
+						<!-- arg -->
+						<test_value name="s4">ftp://10.2.20.40/./bandook.exe</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+	<ruleset>
+		<pattern>bro_weird</pattern>
+		<rules>
+			<rule class="10022" id="10022">
+				<patterns>
+                  <!-- start securityonion -->
+                  <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:s1:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@</pattern>
+                  <!-- end securityonion -->
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ANYSTRING:s1@</pattern>
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@</pattern>
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_weird">1351197195.607686|mHKKLqyI4mf|192.168.1.12|137|192.168.1.13|137|DNS_label_len_gt_pkt|-|F|bro</test_message>
+						<!-- eventid -->
+						<test_value name="s0">mHKKLqyI4mf</test_value>
+						<!-- srcip -->
+						<test_value name="i0">192.168.1.12</test_value>
+						<!-- srcport -->
+						<test_value name="i1">137</test_value>
+						<!-- dstip -->
+						<test_value name="i2">192.168.1.13</test_value>
+						<!-- dstport -->
+						<test_value name="i3">137</test_value>
+						<!-- name -->
+						<test_value name="s1">DNS_label_len_gt_pkt</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+	<ruleset>
+		<pattern>bro_tunnel</pattern>
+		<rules>
+			<rule class="10023" id="10023">
+				<patterns>
+                  <!-- start securityonion -->
+                  <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:s1:|@@ESTRING:s2:@</pattern>
+                  <!-- end securityonion -->
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ANYSTRING:s1@</pattern>
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@</pattern>
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_tunnel">1360153388.439863|FIRbnuXCRqh|70.55.213.211|0|192.88.99.1|0|Tunnel::IP|Tunnel::DISCOVER</test_message>
+						<!-- eventid -->
+						<test_value name="s0">FIRbnuXCRqh</test_value>
+						<!-- srcip -->
+						<test_value name="i0">70.55.213.211</test_value>
+						<!-- srcport -->
+						<test_value name="i1">0</test_value>
+						<!-- dstip -->
+						<test_value name="i2">192.88.99.1</test_value>
+						<!-- dstport -->
+						<test_value name="i3">0</test_value>
+						<!-- name -->
+						<test_value name="s1">Tunnel::IP</test_value>
+						<!-- desc -->
+						<test_value name="s2">Tunnel::DISCOVER</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+<ruleset>
+		<pattern>bro_software</pattern>
+		<rules>
+			<rule class="10024" id="10024">
+				<patterns>
+                  <!-- start securityonion -->
+                  <pattern>@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:s0:|@@ESTRING:s1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING:s2:|@</pattern>
+                  <!-- end securityonion -->
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ANYSTRING:s1@</pattern>
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@</pattern>
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_software">1360157307.572112|10.1.50.5|-|HTTP::BROWSER|MSIE|5|1|-|-|Mozilla/4.0 (compatible; MSIE 5.01; Windows NT)</test_message>
+						<!-- srcip -->
+						<test_value name="i0">10.1.50.5</test_value>
+						<!-- srcport -->
+						<test_value name="i1">-</test_value>
+						<!-- type -->
+						<test_value name="s0">HTTP::BROWSER</test_value>
+						<!-- name -->
+						<test_value name="s1">MSIE</test_value>
+						<!-- version -->
+						<test_value name="i2">5</test_value>
+						<!-- version_minor -->
+						<test_value name="i3">1</test_value>
+						<!-- product -->
+						<test_value name="s2">Mozilla/4.0 (compatible; MSIE 5.01; Windows NT)</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+<ruleset>
+		<pattern>bro_ssh</pattern>
+		<rules>
+			<rule class="10025" id="10025">
+				<patterns>
+                  <!-- start securityonion -->
+                  <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:s1:|@@ESTRING:s2:|@@ESTRING:s3:|@@ESTRING:s4:|@@ESTRING:i4:|@</pattern>
+                  <!-- end securityonion -->
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ANYSTRING:s1@</pattern>
+				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@</pattern>
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_ssh">1360157311.364242|YDPUHZNdL05|10.2.199.248|41392|10.1.40.1|22|failure|OUTBOUND|-|SSH-2.0-Cisco-1.25|1119|-|-|-|-|-</test_message>
+						<!-- eventid -->
+						<test_value name="s0">YDPUHZNdL05</test_value>
+						<!-- srcip -->
+						<test_value name="i0">10.2.199.248</test_value>
+						<!-- srcport -->
+						<test_value name="i1">41392</test_value>
+						<!-- dstip -->
+						<test_value name="i2">10.1.40.1</test_value>
+						<!-- dstport -->
+						<test_value name="i3">22</test_value>
+						<!-- status -->
+						<test_value name="s1">failure</test_value>
+						<!-- direction -->
+						<test_value name="s2">OUTBOUND</test_value>
+						<!-- client -->
+						<test_value name="s3">-</test_value>
+						<!-- server -->
+						<test_value name="s4">SSH-2.0-Cisco-1.25</test_value>
+						<!-- conn_bytes -->
+						<test_value name="i4">1119</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+	<ruleset>
+		<pattern>bro_syslog</pattern>
+		<rules>
+			<rule class="10026" id="10026">
+				<patterns>
+                  <!-- start securityonion -->
+                  <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING:s1:|@@ESTRING:s2:|@@ANYSTRING:s3:@</pattern>
+                  <!-- end securityonion -->
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_ftp">1375571619.507641|QMOWsHjZqde|192.168.1.1|514|192.168.1.116|514|udp|LOCAL0|INFO|Aug  3 23:13:39 pf: 00:00:00.804184 rule 36/0(match): pass in on vr0: (tos 0x0, ttl 64, id 11232, offset 0, flags [DF], proto UDP (17), length 55)   192.168.1.116.43172 > 192.168.1.1.53: 40972+ A? localhost. (27)</test_message>
+						<!-- eventid -->
+						<test_value name="s0">QMOWsHjZqde</test_value>
+						<!-- srcip -->
+						<test_value name="i0">192.168.1.1</test_value>
+						<!-- srcport -->
+						<test_value name="i1">514</test_value>
+						<!-- dstip -->
+						<test_value name="i2">192.168.1.116</test_value>
+						<!-- dstport -->
+						<test_value name="i3">514</test_value>
+						<!-- proto -->
+						<test_value name="i4">UDP</test_value>
+						<!-- bro_syslog_facility -->
+						<test_value name="s1">LOCAL0</test_value>
+						<!-- bro_syslog_severity -->
+						<test_value name="s2">INFO</test_value>
+						<!-- bro_syslog_message -->
+						<test_value name="s3">Aug  3 23:13:39 pf: 00:00:00.804184 rule 36/0(match): pass in on vr0: (tos 0x0, ttl 64, id 11232, offset 0, flags [DF], proto UDP (17), length 55)   192.168.1.116.43172 > 192.168.1.1.53: 40972+ A? localhost. (27)</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
