@@ -16,7 +16,9 @@ INSERT INTO fields (field, field_type, pattern_type) VALUES ("common_name", "str
 INSERT INTO fields (field, field_type, pattern_type) VALUES ("organizational_unit", "string", "QSTRING");
 INSERT INTO fields (field, field_type, pattern_type) VALUES ("organization", "string", "QSTRING");
 INSERT INTO fields (field, field_type, pattern_type) VALUES ("email_address", "string", "QSTRING");
-
+INSERT INTO fields (field, field_type, pattern_type) VALUES ("gaps", "int", "NUMBER");
+INSERT INTO fields (field, field_type, pattern_type) VALUES ("acks", "int", "NUMBER");
+INSERT INTO fields (field, field_type, pattern_type) VALUES ("percent_loss", "string", "QSTRING");
 
 INSERT INTO classes (id, class, parent_id) VALUES(10021, "BRO_FTP", 0);
 INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_FTP"), (SELECT id FROM fields WHERE field="eventid"), 11);
@@ -102,3 +104,9 @@ INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT
 INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_KNOWN_SERVICES"), (SELECT id FROM fields WHERE field="srcport"), 6);
 INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_KNOWN_SERVICES"), (SELECT id FROM fields WHERE field="proto"), 7);
 INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_KNOWN_SERVICES"), (SELECT id FROM fields WHERE field="service"), 11);
+
+INSERT INTO classes (id, class, parent_id) VALUES(10030, "BRO_CAPTURE_LOSS", 0);
+INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_CAPTURE_LOSS"), (SELECT id FROM fields WHERE field="interface"), 11);
+INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_CAPTURE_LOSS"), (SELECT id FROM fields WHERE field="gaps"), 5);
+INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_CAPTURE_LOSS"), (SELECT id FROM fields WHERE field="acks"), 6);
+INSERT INTO fields_classes_map (class_id, field_id, field_order) VALUES ((SELECT id FROM classes WHERE class="BRO_CAPTURE_LOSS"), (SELECT id FROM fields WHERE field="percent_loss"), 12);

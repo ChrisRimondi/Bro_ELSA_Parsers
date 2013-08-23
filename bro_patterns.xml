@@ -285,7 +285,7 @@
 			</rule>
 		</rules>
 	</ruleset>
-		<ruleset>
+	<ruleset>
 		<pattern>bro_known_services</pattern>
 		<rules>
 			<rule class="10030" id="10030">
@@ -298,13 +298,38 @@
 					<example>
 						<test_message program="bro_known_cert">1360154567.821951|192.168.10.100|2869|tcp|HTTP</test_message>
 						<!-- srcip -->
-						<test_value name="i0">192.168.10.100/test_value>
+						<test_value name="i0">192.168.10.100</test_value>
 						<!-- srcport -->
 						<test_value name="i1">2869</test_value>
 						<!-- proto -->
 						<test_value name="i2">tcp</test_value>
 						<!-- service -->
 						<test_value name="s0">HTTP</test_value>
+					</example>
+				</examples>
+			</rule>
+		</rules>
+	</ruleset>
+	<ruleset>
+		<pattern>bro_capture_loss</pattern>
+		<rules>
+			<rule class="10031" id="10031">
+				<patterns>
+                  <!-- start securityonion -->      
+                  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:s1:@</pattern>
+                  <!-- end securityonion -->
+				</patterns>
+				<examples>
+					<example>
+						<test_message program="bro_known_cert">1377263179.538810|900.000092|so12-eth1-1|0|3991|0.000%</test_message>
+						<!-- interface -->
+						<test_value name="s0">so12-eth1-1</test_value>
+						<!-- gaps -->
+						<test_value name="i0">0</test_value>
+						<!-- acks -->
+						<test_value name="i1">3991</test_value>
+						<!-- percent_loss -->
+						<test_value name="s1">0.000%</test_value>
 					</example>
 				</examples>
 			</rule>
