@@ -40,12 +40,8 @@
 		<rules>
 			<rule class="10022" id="10022">
 				<patterns>
-                  <!-- start securityonion -->
-                  <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:s1:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@</pattern>
-                  <!-- end securityonion -->
-				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ANYSTRING:s1@</pattern>
-				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@</pattern>
-				</patterns>
+                <pattern>@ESTRING::|@@ESTRING:s0:|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:s3:|@</pattern>  
+                </patterns>
 				<examples>
 					<example>
 						<test_message program="bro_weird">1351197195.607686|mHKKLqyI4mf|192.168.1.12|137|192.168.1.13|137|DNS_label_len_gt_pkt|-|F|bro</test_message>
@@ -60,7 +56,7 @@
 						<!-- dstport -->
 						<test_value name="i3">137</test_value>
 						<!-- name -->
-						<test_value name="s1">DNS_label_len_gt_pkt</test_value>
+						<test_value name="s3">DNS_label_len_gt_pkt</test_value>
 					</example>
 				</examples>
 			</rule>
@@ -104,12 +100,8 @@
 		<rules>
 			<rule class="10024" id="10024">
 				<patterns>
-                  <!-- start securityonion -->
-                  <pattern>@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:s0:|@@ESTRING:s1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING:s2:|@</pattern>
-                  <!-- end securityonion -->
-				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ESTRING::|@@ANYSTRING:s1@</pattern>
-				  <pattern>@ESTRING::|@@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING:i4:|@@ESTRING::|@@ESTRING:s0:|@</pattern>
-				</patterns>
+                  <pattern>@ESTRING::|@@ESTRING:i0:|@@ESTRING:i1:|@@ESTRING:s0:|@@ESTRING:s1:|@@ESTRING:i2:|@@ESTRING:i3:|@@ESTRING::|@@ESTRING::|@@ESTRING:s1:@</pattern>
+                  </patterns>
 				<examples>
 					<example>
 						<test_message program="bro_software">1360157307.572112|10.1.50.5|-|HTTP::BROWSER|MSIE|5|1|-|-|Mozilla/4.0 (compatible; MSIE 5.01; Windows NT)</test_message>
